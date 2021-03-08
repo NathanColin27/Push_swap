@@ -6,7 +6,7 @@
 #    By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/08 10:35:48 by ncolin            #+#    #+#              #
-#    Updated: 2021/03/08 11:42:43 by ncolin           ###   ########.fr        #
+#    Updated: 2021/03/08 16:48:11 by ncolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,12 @@ CHECKER_NAME = checker
 PUSHSWAP_NAME = push_swap
 
 CC = clang -g
-CFLAFS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I include
+
+CHECKER_SRCS =	$(wildcard shared/*/*.c) \
+				$(wildcard checker/*.c)
+PUSHSWAP_SRCS =	$(wildcard shared/*/*.c) \
+				$(wildcard push_swap/*.c)
 
 CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
 PUSHSWAP_OBJS = $(PUSHSWAP_SRCS:.c=.o)
@@ -32,10 +37,10 @@ libft:
 					@make -s -C libft
 
 $(CHECKER_NAME):	$(CHECKER_OBJS) libft/libft.a
-					$(CC) $(CFLAFS) $(CHECKER_OBJS) $(LDFLAGS) $(LDLIBS) -o $(CHECKER_NAME)
+					$(CC) $(CFLAGS) $(CHECKER_OBJS) $(LDFLAGS) $(LDLIBS) -o $(CHECKER_NAME)
 					@echo "\033[32;1m\rChecker compiled ${TICK}          \033[0m"
 $(PUSHSWAP_NAME):	$(PUSHSWAP_OBJS) libft/libft.a
-					$(CC) $(CFLAFS) $(PUSHSWAP_OBJS) $(LDFLAGS) $(LDLIBS)-o $(PUSHSWAP_NAME)
+					$(CC) $(CFLAGS) $(PUSHSWAP_OBJS) $(LDFLAGS) $(LDLIBS) -o $(PUSHSWAP_NAME)
 					@echo "\033[32;1m\rPush_swap compiled ${TICK}          \033[0m"
 					
 clean_libft:
@@ -49,7 +54,7 @@ clean:
 					@echo "\033[32;1m\rDirectory cleaned ${TRASH}          \033[0m"
 
 fclean:				clean fclean_libft
-					rm -rf $(CHECKER_NAME) $(PUSHSWAP_OBJS)
+					rm -rf $(CHECKER_OBJS) $(PUSHSWAP_OBJS)
 					@echo "\033[32;1m\rDirectory fully cleaned ${TRASH} ${TRASH} ${TRASH}          \033[0m"
 					
 re:					fclean all
