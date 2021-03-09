@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:19:36 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/08 15:33:47 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/09 10:14:58 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void			rev_rot_a(t_stack *a, t_stack *b)
 {
 	int64_t tmp;
-	int i;
+	size_t i;
 	
 	if (a->len < 2)
 		return ;
@@ -30,10 +30,10 @@ void			rev_rot_a(t_stack *a, t_stack *b)
 	a->numbers[a->len - 1] = tmp;
 }
 
-void			rev_rot_a(t_stack *a, t_stack *b)
+void			rev_rot_b(t_stack *a, t_stack *b)
 {
 	int64_t tmp;
-	int i;
+	size_t i;
 	
 	if (b->len < 2)
 		return ;

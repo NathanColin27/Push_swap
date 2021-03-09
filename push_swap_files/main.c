@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 14:09:32 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/09 10:13:57 by ncolin           ###   ########.fr       */
+/*   Created: 2021/03/08 16:32:42 by ncolin            #+#    #+#             */
+/*   Updated: 2021/03/09 10:44:16 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
-// #include "libft.h"
 
-void push_a(t_stack *a, t_stack *b)
+int		print_error(void)
 {
-	if (b->len < 1)
-		return ;
-	a->numbers[a->len] = b->numbers[b->len - 1];
-	b->numbers[b->len - 1] = 0;
-	b->len -= 1;
-	a->len += 1;
+	// write(2, "Error", 6);
+	return (1);
 }
 
-void push_b(t_stack *a, t_stack *b)
+int main(int argc, char **argv)
 {
-	if (a->len < 1)
-		return ;
-	b->numbers[b->len] = a->numbers[a->len - 1];
-	a->numbers[a->len - 1] = 0;
-	a->len -= 1;
-	b->len += 1;
+	t_stack	*st_a;
+	t_stack	*st_b;
+
+	if (argc < 2)
+		return (1);
+	st_a = parse_stack(argc, argv);
+	if (!st_a)
+		return (print_error());
+	st_b = create_stack(st_a->size);
+	if (!st_b)
+		return (print_error());
+	
+	return (0);
 }

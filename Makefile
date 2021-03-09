@@ -6,7 +6,7 @@
 #    By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/08 10:35:48 by ncolin            #+#    #+#              #
-#    Updated: 2021/03/08 16:48:11 by ncolin           ###   ########.fr        #
+#    Updated: 2021/03/09 10:45:10 by ncolin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ CC = clang -g
 CFLAGS = -Wall -Wextra -Werror -I include
 
 CHECKER_SRCS =	$(wildcard shared/*/*.c) \
-				$(wildcard checker/*.c)
+				$(wildcard checker_files/*.c)
 PUSHSWAP_SRCS =	$(wildcard shared/*/*.c) \
-				$(wildcard push_swap/*.c)
+				$(wildcard push_swap_files/*.c)
 
 CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
 PUSHSWAP_OBJS = $(PUSHSWAP_SRCS:.c=.o)

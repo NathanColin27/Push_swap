@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:35:25 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/08 15:04:57 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/09 10:15:53 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		swap_a(t_stack *a, t_stack *b)
 	if (a->len < 2)
 		return ;
 	(void)b;
-	swap(a->numbers[a->len - 2], a->numbers[a->len - 1]);
+	swap(&a->numbers[a->len - 2], &a->numbers[a->len - 1]);
 }
 
 void		swap_b(t_stack *a, t_stack *b)
@@ -33,7 +33,7 @@ void		swap_b(t_stack *a, t_stack *b)
 	if (b->len < 2)
 		return ;
 	(void)a;
-	swap(b->numbers[b->len - 2], b->numbers[b->len - 1]);
+	swap(&b->numbers[b->len - 2], &b->numbers[b->len - 1]);
 }
 
 void		swap_ab(t_stack *a, t_stack *b)
