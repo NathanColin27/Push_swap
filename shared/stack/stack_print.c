@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:15:09 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/09 12:23:03 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/11 11:47:21 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void print_stacks(t_stack *st_a, t_stack *st_b)
 {
-	printf("stack A (%zu):\n>", st_a->len);
+	printf("stack A (%zu):\n|", st_a->len);
 	for (size_t i = 0; i < st_a->len; i++)
 	{
-		printf(" %lld", st_a->numbers[i]);
+		printf(" %ld", st_a->numbers[i]);
 		// if (stack_isprt(st_a, i))
 		// 	printf(" |");
 	}
-	printf(" <-top|\n");
-	printf("stack B (%zu):\n>", st_b->len);
+	printf(" <\n");
+	printf("stack B (%zu):\n|", st_b->len);
 	for (size_t i = 0; i < st_b->len; i++)
 	{
-		printf(" %lld", st_b->numbers[i]);
+		printf(" %ld", st_b->numbers[i]);
 		// if (stack_isprt(st_b, i))
 		// 	printf(" |");
 	}
-	printf(" <-top|\n");
+	printf(" <\n");
 }

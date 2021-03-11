@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 10:21:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/09 12:31:07 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/11 13:39:21 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
+#include "checker.h"
 
 int		print_error(void)
 {
-	write(2, "Error", 6);
+	write(2, "Error\n", 7);
 	return (1);
 }
 
@@ -22,6 +23,7 @@ int main(int argc, char **argv)
 {
 	t_stack	*st_a;
 	t_stack	*st_b;
+	t_list	*instructions;
 
 	if (argc < 2)
 		return (1);
@@ -31,5 +33,12 @@ int main(int argc, char **argv)
 	st_b = create_stack(st_a->size);
 	if (!st_b)
 		return (print_error());
+	instructions = get_input();
+	exec_instructions(instructions, st_a, st_b);
+	if (valid_sort(st_a, st_b))
+		printf("OK\n");
+	else
+		printf("KO\n");
+	// print_stacks(st_a, st_b);
 	return (0);
 }

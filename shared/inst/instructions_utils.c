@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 11:13:13 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/09 11:37:06 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/11 12:04:45 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ t_instruction	get_instruction(char *arg)
 		{"rr",&rot_ab},
 		{"rra",&rev_rot_a},
 		{"rrb",&rev_rot_b},
-		{"rrr",&rev_rot_ab},
-		{NULL, NULL}
+		{"rrr",&rev_rot_ab}
 	};
 	size_t i;
 	
@@ -37,5 +36,5 @@ t_instruction	get_instruction(char *arg)
 			return (tab[i]);
 		i++;
 	}
-	return (tab[i]);
+	return ((t_instruction){NULL, NULL});
 }
