@@ -6,8 +6,10 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/11 15:30:20 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/11 18:45:46 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	process(t_stack *a, t_stack *b, t_list **instruction);
+int	process(t_stack *a, t_stack *b);
+
+int	find_median(t_stack *stack);

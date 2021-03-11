@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:08:48 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/11 17:55:40 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/11 23:08:50 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,34 +30,35 @@ int	min_on_top(t_stack *a)
 	return (1);
 }
 
-int	process(t_stack *a, t_stack *b, t_list **instruction)
+// number[0] == bottom of stack
+// number[len - 1] ==  top  
+void push_median(t_stack *a, t_stack *b, int median)
 {
-	(void)instruction;
+	t_list *instr;
+	size_t count = 0;
+	print_stacks(a,b);
+	printf("\nmedian = %d\n ", median);
+	while (1 && count <= a->size)
+	{
+		if (a->numbers[a->len - 1] <= median)
+			inst_exec_save("pb", &instr, a, b);
+		else if (a->numbers[a->len - 1] > median)
+			inst_exec_save("ra", &instr, a, b);
+		
+		count ++;
+		print_stacks(a,b);
+	}
+}
+
+int	process(t_stack *a, t_stack *b)
+{
+
+	int median;
 	int count = 0;
-	t_instruction inst;
-	while (a->len > 0)
-	{
-		inst = get_instruction("ra");
-		while(!min_on_top(a))
-		{
-			// print_stacks(a, b);
-			// printf("min not on top\n");
-			inst.exec(a, b);
-			count++;
-		}
-		// print_stacks(a, b);
-		// printf("min on top\n");
-		inst = get_instruction("pb");
-		inst.exec(a, b);
-		count++;
-		// print_stacks(a, b);
-	}
-	while(b->len > 0)
-	{
-		inst = get_instruction("pa");
-		inst.exec(a, b);
-		count++;
-	}
+
+	median = find_median(a);
+	// t_instruction inst;
+	push_median(a, b, median);
 	print_stacks(a, b);
 	printf("done in %d instructions", count);
 	return (0);

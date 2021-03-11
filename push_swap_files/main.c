@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:32:42 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/11 15:30:10 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/11 22:47:48 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 {
 	t_stack	*st_a;
 	t_stack	*st_b;
-	t_list	*instructions;
+	// t_list	*instructions;
 	
 	if (argc < 2)
 		return (1);
@@ -33,7 +33,6 @@ int main(int argc, char **argv)
 	st_b = create_stack(st_a->size);
 	if (!st_b)
 		return (print_error());
-	process(st_a, st_b, &instructions);
-	
+	process(st_a, st_b);
 	return (0);
 }

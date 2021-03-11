@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shared.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:04 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/09 11:19:34 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/11 22:40:50 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void		print_stacks(t_stack *st_a, t_stack *st_b);
 /* instructions */
 
 t_instruction	get_instruction(char *arg);
+
+int				inst_exec_save(char *arg, t_list **inst, t_stack *a, t_stack *b);
 
 void			swap_a(t_stack *a, t_stack *b);
 
