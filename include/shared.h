@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:04 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/11 22:40:50 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/12 12:52:37 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		print_stacks(t_stack *st_a, t_stack *st_b);
 
 t_instruction	get_instruction(char *arg);
 
-int				inst_exec_save(char *arg, t_list **inst, t_stack *a, t_stack *b);
+int				inst_exec(char *arg, t_stack *a, t_stack *b);
 
 void			swap_a(t_stack *a, t_stack *b);
 

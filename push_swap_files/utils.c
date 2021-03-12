@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 16:32:42 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/12 13:23:13 by nathan           ###   ########.fr       */
+/*   Created: 2021/03/12 12:27:16 by nathan            #+#    #+#             */
+/*   Updated: 2021/03/12 13:26:05 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int		exit_error(void)
 {
-	t_stack	*a;
-	t_stack	*b;
+	write(2, "Error\n", 7);
+	//free_all()//
+	exit(0);
+}
 
-	if (argc < 2)
-		return (1);
-	a = parse_stack(argc, argv);
-	if (!a)
-		return (exit_error());
-	b = create_stack(a->size);
-	if (!b)
-		return (exit_error());
-	if (is_sorted(a))
-		return (0);
-	process(a, b);
-	return (0);
+int is_sorted(t_stack *a)
+{
+	size_t i;
+
+	i = 0;
+	while (i < a->len - 1)
+	{
+		if (a->numbers[i] < a->numbers[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }

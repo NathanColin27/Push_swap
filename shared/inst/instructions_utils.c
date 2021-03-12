@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 11:13:13 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/11 22:51:04 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/12 12:51:23 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,10 @@ t_instruction	get_instruction(char *arg)
 	return ((t_instruction){NULL, NULL});
 }
 
-int		inst_exec_save(char *arg, t_list **inst, t_stack *a, t_stack *b)
+int		inst_exec(char *arg, t_stack *a, t_stack *b)
 {
-	// t_list	*node;
 	t_instruction	in;
-	(void)inst;
-	// node = ft_lstnew(arg);
-	// if (!node)
-	// 	return (1);
-	// ft_lstadd_back(inst, node);
+	printf("%s\n", arg);
 	in = get_instruction(arg);
 	if (!in.name)
 		return (1);

@@ -6,12 +6,28 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 18:15:11 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/11 18:42:56 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/12 12:55:57 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 #include "push_swap.h"
+
+// number[0] == bottom of stack
+// number[len - 1] ==  top  
+void push_median(t_stack *a, t_stack *b, int median)
+{
+	size_t count = 0;
+	print_stacks(a,b);
+	while (1 && count <= a->size)
+	{
+		if (a->numbers[a->len - 1] <= median)
+			inst_exec("pb", a, b);
+		else if (a->numbers[a->len - 1] > median)
+			inst_exec("ra", a, b);
+		count ++;
+	}
+}
 
 void sort_array(int *array, size_t len)
 {
@@ -42,6 +58,7 @@ void sort_array(int *array, size_t len)
 int	find_median(t_stack *stack)
 {
 	int *array;
+	int ret;
 	size_t i;
 	
 	i = 0;
@@ -53,5 +70,7 @@ int	find_median(t_stack *stack)
 		i++;
 	}
 	sort_array(array, stack->len);
-	return (array[(stack->len)/2]);
+	ret = array[(stack->len)/2];
+	free(array);
+	return (ret);
 }
