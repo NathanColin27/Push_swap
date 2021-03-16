@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 18:15:11 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/16 16:03:31 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/16 18:51:44 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	has_lower_than_median(t_stack *st, int median)
 }
 
 // number[0] == bottom of stack
-// number[len - 1] ==  top  
+// number[len - 1] == top
 void push_median(t_stack *a, t_stack *b, int median)
 {
 	size_t count = 0;

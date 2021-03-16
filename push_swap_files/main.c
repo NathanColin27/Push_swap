@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:32:42 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/16 18:26:48 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/16 19:02:53 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int main(int argc, char **argv)
 	b = create_stack(a->size);
 	if (!b)
 		return (exit_error());
+	data->a = a;
+	data->b = b;
 	if (is_sorted(a))
 		return (0);
 	process(a, b);

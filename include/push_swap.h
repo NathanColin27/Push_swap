@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/16 18:44:59 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/16 19:09:12 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ typedef struct	s_data
 
 	int		b_biggest;
 	int		b_smallest;
+
+	int		small_rot;
+	int		small_rrot;
+	int		big_rot;
+	int		big_rrot;
 }				t_data;
 
 int	process(t_stack *a, t_stack *b);
