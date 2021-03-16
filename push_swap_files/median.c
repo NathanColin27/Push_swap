@@ -6,24 +6,37 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 18:15:11 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/12 12:55:57 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/16 16:03:31 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 #include "push_swap.h"
 
+int	has_lower_than_median(t_stack *st, int median)
+{
+	size_t i;
+
+	i = 0;
+	while (i < st->len)
+	{
+		if (st->numbers[i] < median)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 // number[0] == bottom of stack
 // number[len - 1] ==  top  
 void push_median(t_stack *a, t_stack *b, int median)
 {
 	size_t count = 0;
-	print_stacks(a,b);
 	while (1 && count <= a->size)
 	{
-		if (a->numbers[a->len - 1] <= median)
+		if (a->numbers[a->len - 1] < median)
 			inst_exec("pb", a, b);
-		else if (a->numbers[a->len - 1] > median)
+		else if (a->numbers[a->len - 1] >= median && has_lower_than_median(a, median))
 			inst_exec("ra", a, b);
 		count ++;
 	}

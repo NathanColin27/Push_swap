@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rot.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:50:39 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/08 15:19:29 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/16 18:39:29 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			rot_a(t_stack *a, t_stack *b)
 {
-	int64_t tmp;
+	int tmp;
 	int i;
 	
 	if (a->len < 2)
@@ -32,7 +32,7 @@ void			rot_a(t_stack *a, t_stack *b)
 
 void			rot_b(t_stack *a, t_stack *b)
 {
-	int64_t tmp;
+	int tmp;
 	int i;
 	
 	if (b->len < 2)

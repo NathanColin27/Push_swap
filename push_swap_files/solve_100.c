@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_create.c                                     :+:      :+:    :+:   */
+/*   solve_100.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 13:59:53 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/16 18:39:29 by nathan           ###   ########.fr       */
+/*   Created: 2021/03/16 17:35:59 by nathan            #+#    #+#             */
+/*   Updated: 2021/03/16 18:37:20 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
-// #include "libft.h"
+#include "push_swap.h"
 
-t_stack		*create_stack(size_t size)
+
+
+void solve_100(t_stack *a, t_stack *b)
 {
-	t_stack	*stack;
-
-	stack = ft_calloc(1, sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->size = size;
-	stack->len = 0;
-	stack->numbers = ft_calloc(size, sizeof(int));
-	if (!stack->numbers)
-		return (NULL);
-	return (stack);
+	int median;
+	median = find_median(a);
+	while(a->len)
+	{
+		push_median(a,b,median);
+		while (b->len)
+		{
+			find_big_small(a);
+			print_stacks(a,b);
+			printf("biggest %d, smallest %d\n ", get_data()->b_biggest, get_data()->b_smallest);
+			sleep(10);
+		}
+	
+	}
+	print_stacks(a,b);
 }

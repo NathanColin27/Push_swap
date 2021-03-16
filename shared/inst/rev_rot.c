@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:19:36 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/09 10:14:58 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/16 18:39:29 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			rev_rot_a(t_stack *a, t_stack *b)
 {
-	int64_t tmp;
+	int tmp;
 	size_t i;
 	
 	if (a->len < 2)
@@ -32,7 +32,7 @@ void			rev_rot_a(t_stack *a, t_stack *b)
 
 void			rev_rot_b(t_stack *a, t_stack *b)
 {
-	int64_t tmp;
+	int tmp;
 	size_t i;
 	
 	if (b->len < 2)

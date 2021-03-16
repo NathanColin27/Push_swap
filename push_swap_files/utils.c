@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:27:16 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/12 13:26:05 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/16 18:35:56 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,49 @@ int		exit_error(void)
 	write(2, "Error\n", 7);
 	//free_all()//
 	exit(0);
+}
+
+int find_smallest(t_stack *st)
+{
+	int res;
+	size_t i;
+	
+	
+	res = st->numbers[0];
+	i = 1;
+	while (i < st->len)
+	{
+		printf("num [%zu] :%d\n", i , st->numbers[i]);
+		if (st->numbers[i] < res)
+			res = st->numbers[i];
+		i++;
+	}
+	printf("small %d\n",res);
+	return (res);
+}
+
+int find_biggest(t_stack *st)
+{
+	int res;
+	size_t i;
+
+	res = st->numbers[0];
+	i = 1;
+	while (i < st->len)
+	{
+		printf("num [%zu] :%d\n", i , st->numbers[i]);
+		if (st->numbers[i] > res)
+			res = st->numbers[i];
+		i++;
+	}
+	printf("BIG %d\n",res);
+	return (res);
+}
+
+void	find_big_small(t_stack *st)
+{
+	get_data()->b_biggest = find_biggest(st);
+	get_data()->b_smallest = find_smallest(st);	
 }
 
 int is_sorted(t_stack *a)

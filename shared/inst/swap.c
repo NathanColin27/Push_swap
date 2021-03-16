@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:35:25 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/09 10:15:53 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/16 18:39:29 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 
-static void	swap(int64_t *a, int64_t *b)
+static void	swap(int *a, int *b)
 {
-	int64_t	tmp;
+	int	tmp;
 	tmp = *a;
 	*a = *b;
 	*b = tmp; 

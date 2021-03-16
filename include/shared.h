@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:04 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/12 12:52:37 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/16 18:39:29 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 typedef	struct	s_stack
 {
-	int64_t	*numbers;
+	int	*numbers;
 	size_t	size;
 	size_t	len;
 	t_list	*partitions;
