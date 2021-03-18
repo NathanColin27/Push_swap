@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/16 19:09:12 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/18 12:24:24 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ typedef struct	s_data
 	int		b_biggest;
 	int		b_smallest;
 
-	int		small_rot;
-	int		small_rrot;
-	int		big_rot;
-	int		big_rrot;
+	int		s_rot;
+	int		s_rrot;
+	int		b_rot;
+	int		b_rrot;
+	int		small_flag;
+	int 	big_flag;
 }				t_data;
 
 int	process(t_stack *a, t_stack *b);
