@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve_5.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:43:21 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/16 17:34:13 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/18 14:58:18 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void 	solve_5(t_stack *a, t_stack *b)
 	int median;
 
 	median = find_median(a);
-	push_median(a, b, median);
+	push_median(a, b, median, 0);
 	solve_3(a, b);
 	if (is_sorted(b))
 		inst_exec("sb", a, b);
@@ -111,7 +111,7 @@ void	solve_6(t_stack *a, t_stack *b)
 	int median;
 
 	median = find_median(a);
-	push_median(a, b, median);
+	push_median(a, b, median, 0);
 	solve_3(a, b);
 	solve_3_inverted(b, a);
 	inst_exec("pa", a, b);

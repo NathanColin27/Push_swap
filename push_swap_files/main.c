@@ -3,20 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:32:42 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/16 19:02:53 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/18 15:32:28 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 #include "push_swap.h"
 
-t_data	*get_data()
+void init_data(t_data *data, t_stack *a, t_stack *b)
 {
-	static t_data data;
-	return (&data);
+	data->a = a;
+	data->b = b;
+	data->b_biggest = 0;
+	data->b_rot = 0;
+	data->b_rrot = 0;
+	data->b_smallest = 0;
+	data->s_rrot = 0;
+	data->s_rot = 0;
+	data->small_flag = 0;
+	data->rotate_left = 0;
+	data->inst_count = 0;
+	
+	
+	data->big_flag = 0;
 }
 
 int main(int argc, char **argv)
@@ -34,8 +46,7 @@ int main(int argc, char **argv)
 	b = create_stack(a->size);
 	if (!b)
 		return (exit_error());
-	data->a = a;
-	data->b = b;
+	init_data(data,a ,b);
 	if (is_sorted(a))
 		return (0);
 	process(a, b);

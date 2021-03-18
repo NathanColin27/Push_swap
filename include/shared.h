@@ -6,10 +6,12 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:04 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/18 11:24:41 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/18 17:30:59 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SHARED_H
+#define SHARED_H
 #include "../libft/includes/libft.h"
 
 /* structs */
@@ -27,6 +29,24 @@ typedef struct	s_instruction
 	char *name;
 	void (* exec)(t_stack *, t_stack *);
 }				t_instruction;
+
+typedef struct	s_data
+{
+	t_stack *a;
+	t_stack *b;
+
+	int		b_biggest;
+	int		b_smallest;
+
+	int		s_rot;
+	int		s_rrot;
+	int		b_rot;
+	int		b_rrot;
+	int		small_flag;
+	int 	big_flag;
+	int		rotate_left;
+	int		inst_count;
+}				t_data;
 
 
 /* stack */
@@ -65,5 +85,7 @@ void			rev_rot_b(t_stack *a, t_stack *b);
 
 void			rev_rot_ab(t_stack *a, t_stack *b);
 
+t_data			*get_data();
 
 
+#endif

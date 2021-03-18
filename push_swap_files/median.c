@@ -3,24 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   median.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 18:15:11 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/16 18:51:44 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/18 16:59:56 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 #include "push_swap.h"
 
-int	has_lower_than_median(t_stack *st, int median)
+int	has_lower_than_x(t_stack *st, int x)
 {
 	size_t i;
 
 	i = 0;
 	while (i < st->len)
 	{
-		if (st->numbers[i] < median)
+		if (st->numbers[i] < x)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	has_upper_than_x(t_stack *st, int x)
+{
+	size_t i;
+
+	i = 0;
+	while (i < st->len)
+	{
+		if (st->numbers[i] >= x)
 			return (1);
 		i++;
 	}
@@ -29,16 +43,29 @@ int	has_lower_than_median(t_stack *st, int median)
 
 // number[0] == bottom of stack
 // number[len - 1] == top
-void push_median(t_stack *a, t_stack *b, int median)
+void push_median(t_stack *a, t_stack *b, int median, int flag)
 {
 	size_t count = 0;
-	while (1 && count <= a->size)
+	if (flag == 1)
 	{
-		if (a->numbers[a->len - 1] < median)
-			inst_exec("pb", a, b);
-		else if (a->numbers[a->len - 1] >= median && has_lower_than_median(a, median))
-			inst_exec("ra", a, b);
-		count ++;
+		while (count <= a->size && has_lower_than_x(a, median))
+		{
+			if (a->numbers[a->len - 1] < median)
+				inst_exec("pb", a, b);
+			else if (a->numbers[a->len - 1] >= median && has_lower_than_x(a, median))
+				inst_exec("ra", a, b);
+			count ++;
+		}
+	}
+	else {
+		while (count <= a->size && has_upper_than_x(a, median))
+		{
+			if (a->numbers[a->len - 1] >= median)
+				inst_exec("pb", a, b);
+			else if (a->numbers[a->len - 1] < median && has_upper_than_x(a, median))
+				inst_exec("ra", a, b);
+			count ++;
+		}
 	}
 }
 

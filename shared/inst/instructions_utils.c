@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   instructions_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 11:13:13 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/12 12:51:23 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/18 17:45:13 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
+#include "push_swap.h"
 
 t_instruction	get_instruction(char *arg)
 {
@@ -39,10 +40,20 @@ t_instruction	get_instruction(char *arg)
 	return ((t_instruction){NULL, NULL});
 }
 
+t_data	*get_data()
+{
+	static t_data data;
+	return (&data);
+}
+
 int		inst_exec(char *arg, t_stack *a, t_stack *b)
 {
+	t_data *data;
 	t_instruction	in;
-	printf("%s\n", arg);
+	
+	data = get_data();
+	
+	printf("%d:	%s\n",data->inst_count++, arg);
 	in = get_instruction(arg);
 	if (!in.name)
 		return (1);
