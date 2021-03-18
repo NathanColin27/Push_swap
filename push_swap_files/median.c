@@ -3,15 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   median.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 18:15:11 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/18 16:59:56 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/18 22:40:30 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 #include "push_swap.h"
+
+int	has_between_min_max(t_stack *st, int min, int max)
+{
+	size_t i;
+
+	i = 0;
+	while (i < st->len)
+	{
+		if (st->numbers[i] >= min && st->numbers[i] <= max)
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 int	has_lower_than_x(t_stack *st, int x)
 {

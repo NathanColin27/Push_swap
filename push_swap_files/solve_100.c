@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve_100.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:35:59 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/18 17:31:22 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/18 22:47:10 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ void solve_100(t_stack *a, t_stack *b)
 			find_move();
 			push_back(a, b);
 			reset_data();
-			sleep(1);
+			// sleep(1);
 		}
 		while (get_data()->rotate_left--)
 			inst_exec("ra", a, b);

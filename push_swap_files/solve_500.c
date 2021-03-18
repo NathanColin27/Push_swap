@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve_500.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/18 18:01:06 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/18 22:46:00 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,14 @@ void push_quarters(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 	printf("upper : %d\n", chunk_upper_limit);
 	printf("----------------------------------------------------\n");
 	print_stacks(a,b);
-	while (count <= a->size && has_lower_than_x(a, chunk_upper_limit))
+	while (count <= a->size - 1)
 	{
 		if (a->numbers[a->len - 1] < chunk_upper_limit && a->numbers[a->len - 1] >= chunk_lower_limit) 
 			inst_exec("pb", a, b);
-		else if (has_lower_than_x(a,chunk_upper_limit))
+		else
 			inst_exec("ra", a, b);
 		count ++;
 	}
-	sleep(1);
 	printf("pushing to b \n");
 	print_stacks(a,b);
 }
@@ -66,10 +65,9 @@ void solve_500(t_stack *a, t_stack *b)
 	chunk_num = 1;
 	while(a->len)
 	{
-		push_quarters(a,b, 8, chunk_num);
+		push_quarters(a,b, 2, chunk_num);
 		while (b->len)
 		{
-			// print_stacks(a,b);
 			find_big_small(b);
 			find_move();
 			push_back(a, b);
@@ -81,13 +79,14 @@ void solve_500(t_stack *a, t_stack *b)
 			inst_exec("ra", a, b);
 			get_data()->rotate_left--;
 		}
-		if(chunk_num == 8)
+		if(chunk_num == 2)
 		{
+			inst_exec("ra", a, b);
 			inst_exec("ra", a, b);
 			break ;
 		}
 		chunk_num++;
 		
 	}
-	print_stacks(a,b);
+	// print_stacks(a,b);
 }
