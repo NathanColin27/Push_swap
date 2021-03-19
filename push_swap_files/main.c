@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:32:42 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/19 13:42:17 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/19 14:39:14 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,5 @@ int main(int argc, char **argv)
 		return (0);
 	process(a, b);
 	print_stacks(a,b);
-	printf()
 	return (0);
 }

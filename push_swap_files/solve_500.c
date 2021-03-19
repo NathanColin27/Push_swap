@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/19 13:40:31 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/19 14:51:31 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int	find_chunks(t_stack *stack, int chunk_total, int chunk_num, int flag)
 	}
 	sort_array(array, stack->len);
 	ret = array[((stack->len)/chunk_total) * (chunk_num - flag) - 1 ];
+	if (chunk_num == 1 && flag == 1)
+	{
+		ret = array[0];
+	}
 	if (chunk_num == chunk_total && flag == 0)
 	{
 		ret = array[stack->len - 1];
@@ -73,6 +77,8 @@ void solve_500(t_stack *a, t_stack *b)
 		push_quarters(a,b, chunk_total, chunk_num);
 		while (b->len)
 		{
+			// sleep(1);
+			// print_stacks(a,b)
 			find_big_small(b);
 			find_move();
 			push_back(a, b);
