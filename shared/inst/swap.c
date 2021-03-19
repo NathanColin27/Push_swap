@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:35:25 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/16 18:39:29 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/19 10:46:11 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 static void	swap(int *a, int *b)
 {
 	int	tmp;
+
 	tmp = *a;
 	*a = *b;
-	*b = tmp; 
+	*b = tmp;
 }
 
 void		swap_a(t_stack *a, t_stack *b)
@@ -39,6 +40,8 @@ void		swap_b(t_stack *a, t_stack *b)
 void		swap_ab(t_stack *a, t_stack *b)
 {
 	if (b->len < 2 || a->len < 2)
-	swap_a(a, b);
-	swap_b(a, b);
+	{
+		swap_a(a, b);
+		swap_b(a, b);
+	}
 }

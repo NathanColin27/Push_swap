@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:27:16 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/16 19:25:49 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/19 11:09:39 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,26 @@ int		exit_error(void)
 	exit(0);
 }
 
-int find_smallest(t_stack *st)
+void	reset_data(void)
 {
-	int res;
-	size_t i;
-	
-	
+	t_data *data;
+
+	data = get_data();
+	data->b_biggest = 0;
+	data->b_rot = 0;
+	data->b_rrot = 0;
+	data->b_smallest = 0;
+	data->big_flag = 0;
+	data->small_flag = 0;
+	data->s_rot = 0;
+	data->s_rrot = 0;
+}
+
+int		find_smallest(t_stack *st)
+{
+	int		res;
+	size_t	i;
+
 	res = st->numbers[0];
 	i = 1;
 	while (i < st->len)
@@ -37,10 +51,10 @@ int find_smallest(t_stack *st)
 	return (res);
 }
 
-int find_biggest(t_stack *st)
+int		find_biggest(t_stack *st)
 {
-	int res;
-	size_t i;
+	int		res;
+	size_t	i;
 
 	res = st->numbers[0];
 	i = 1;
@@ -59,7 +73,7 @@ void	find_big_small(t_stack *st)
 	get_data()->b_smallest = find_smallest(st);
 }
 
-int is_sorted(t_stack *a)
+int		is_sorted(t_stack *a)
 {
 	size_t i;
 

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack_create.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 13:59:53 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/16 18:39:29 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/19 10:56:41 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
-// #include "libft.h"
 
 t_stack		*create_stack(size_t size)
 {

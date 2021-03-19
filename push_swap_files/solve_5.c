@@ -6,14 +6,12 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:43:21 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/18 14:58:18 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/19 11:03:37 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 #include "push_swap.h"
-
-//number[0] == bottom
 
 void	solve_2(t_stack *a, t_stack *b)
 {
@@ -26,11 +24,10 @@ void	solve_3_inverted(t_stack *a, t_stack *b)
 	int top;
 	int mid;
 	int bot;
-	
+
 	top = a->numbers[2];
 	mid = a->numbers[1];
 	bot = a->numbers[0];
-	
 	if (top > mid && mid < bot && top < bot)
 		inst_exec("rra", a, b);
 	else if (top > mid && mid < bot && top > bot)
@@ -49,13 +46,12 @@ void	solve_3_inverted(t_stack *a, t_stack *b)
 		inst_exec("sa", a, b);
 }
 
-
 void	solve_3(t_stack *a, t_stack *b)
 {
 	int top;
 	int mid;
 	int bot;
-	
+
 	top = a->numbers[2];
 	mid = a->numbers[1];
 	bot = a->numbers[0];
@@ -80,20 +76,20 @@ void	solve_3(t_stack *a, t_stack *b)
 void	solve_4(t_stack *a, t_stack *b)
 {
 	int smallest;
-	
+
 	smallest = find_smallest(a);
 	if (a->numbers[0] == smallest)
-		inst_exec("rra",a, b);
+		inst_exec("rra", a, b);
 	while (a->numbers[3] != smallest)
 		inst_exec("ra", a, b);
-	if(is_sorted(a))
+	if (is_sorted(a))
 		return ;
 	inst_exec("pb", a, b);
 	solve_3(a, b);
 	inst_exec("pa", a, b);
 }
 
-void 	solve_5(t_stack *a, t_stack *b)
+void	solve_5(t_stack *a, t_stack *b)
 {
 	int median;
 

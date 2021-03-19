@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve_500.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/18 22:46:00 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/19 10:41:48 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,32 +61,35 @@ void push_quarters(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 void solve_500(t_stack *a, t_stack *b)
 {
 	int chunk_num;
-	printf("test\n");
+	int chunk_total;
+
+	chunk_total =  a->size / 75 + 1;
 	chunk_num = 1;
 	while(a->len)
 	{
-		push_quarters(a,b, 2, chunk_num);
+		push_quarters(a,b, chunk_total, chunk_num);
 		while (b->len)
 		{
 			find_big_small(b);
 			find_move();
 			push_back(a, b);
 			reset_data();
-			// sleep(1);
+			sleep(1);
 		}
 		while (get_data()->rotate_left != 0)
 		{
 			inst_exec("ra", a, b);
 			get_data()->rotate_left--;
 		}
-		if(chunk_num == 2)
+		if(chunk_num == chunk_total)
 		{
-			inst_exec("ra", a, b);
-			inst_exec("ra", a, b);
+			printf("lol\n");
+			while (!is_sorted(a))
+				inst_exec("ra", a, b);
 			break ;
 		}
 		chunk_num++;
 		
 	}
-	// print_stacks(a,b);
+	printf("%d\n", chunk_total);
 }

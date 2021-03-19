@@ -6,14 +6,13 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:09:32 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/09 10:13:57 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/19 11:06:36 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
-// #include "libft.h"
 
-void push_a(t_stack *a, t_stack *b)
+void	push_a(t_stack *a, t_stack *b)
 {
 	if (b->len < 1)
 		return ;
@@ -23,7 +22,7 @@ void push_a(t_stack *a, t_stack *b)
 	a->len += 1;
 }
 
-void push_b(t_stack *a, t_stack *b)
+void	push_b(t_stack *a, t_stack *b)
 {
 	if (a->len < 1)
 		return ;

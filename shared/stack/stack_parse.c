@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   stack_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:41:39 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/11 13:38:08 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/19 10:47:24 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
-// #include "libft.h"
 
 static int	valid_integer(char *s)
 {
 	int i;
-	
+
 	i = 0;
-	if (s[0] && (s[0] ==  '-' || s[0] == '+'))
+	if (s[0] && (s[0] == '-' || s[0] == '+'))
 		i++;
 	while (s[i])
 	{
@@ -29,17 +28,17 @@ static int	valid_integer(char *s)
 	return (1);
 }
 
-t_stack *parse_stack(int ac, char **av)
+t_stack		*parse_stack(int ac, char **av)
 {
-	t_stack *stack;
-	size_t i;
+	t_stack	*stack;
+	size_t	i;
 
 	stack = create_stack(ac - 1);
 	if (!stack)
 		return (NULL);
 	i = 0;
 	while (i < stack->size)
-	{	
+	{
 		if (!valid_integer(av[i + 1]))
 			return (0);
 		stack->numbers[stack->size - i - 1] = ft_atoi(av[i + 1]);
