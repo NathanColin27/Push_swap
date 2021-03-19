@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/19 11:59:41 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/19 13:40:31 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void push_quarters(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 	chunk_lower_limit = find_chunks(a, chunk_total, chunk_num, 1);
 	chunk_upper_limit = find_chunks(a, chunk_total, chunk_num, 0);
 	// sleep(1);
-	printf("----------------------------------------------------\n");
-	printf("lower : %d\n", chunk_lower_limit);
-	printf("upper : %d\n", chunk_upper_limit);
-	printf("----------------------------------------------------\n");
-	print_stacks(a,b);
+	// printf("----------------------------------------------------\n");
+	// printf("lower : %d\n", chunk_lower_limit);
+	// printf("upper : %d\n", chunk_upper_limit);
+	// printf("----------------------------------------------------\n");
+	// print_stacks(a,b);
 	while (count <= a->size - 1)
 	{
 		if (a->numbers[a->len - 1] < chunk_upper_limit && a->numbers[a->len - 1] >= chunk_lower_limit) 
@@ -59,8 +59,6 @@ void push_quarters(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 			inst_exec("ra", a, b);
 		count ++;
 	}
-	printf("pushing to b \n");
-	print_stacks(a,b);
 }
 
 void solve_500(t_stack *a, t_stack *b)
@@ -69,41 +67,29 @@ void solve_500(t_stack *a, t_stack *b)
 	int chunk_total;
 
 	chunk_total =  a->size / 75 + 1;
-	printf("chunk total : %d", chunk_total);
 	chunk_num = 1;
 	while(a->len)
 	{
 		push_quarters(a,b, chunk_total, chunk_num);
-		// sleep(1);
 		while (b->len)
 		{
-			printf("chunk total : %d", chunk_total);
 			find_big_small(b);
 			find_move();
 			push_back(a, b);
 			reset_data();
-			print_stacks(a,b);
-			// sleep(1);
 		}
 		while (get_data()->rotate_left != 0)
 		{
 			inst_exec("ra", a, b);
 			get_data()->rotate_left--;
-			print_stacks(a,b);
 		}
 		if(chunk_num == chunk_total)
 		{
-			printf("lol\n");
-			print_stacks(a,b);
 			while (!is_sorted(a))
-			{
 				inst_exec("ra", a, b);
-				// sleep(1);
-			}	
 			break ;
 		}
 		chunk_num++;
-		
 	}
 	printf("%d\n", chunk_total);
 }
