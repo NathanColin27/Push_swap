@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 11:13:13 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/19 11:14:04 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/19 11:34:01 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int				inst_exec(char *arg, t_stack *a, t_stack *b)
 	t_instruction	in;
 	
 	data = get_data();
-	printf("%d:	%s\n", data->inst_count++, arg);
+	// printf("%d:	%s\n", data->inst_count++, arg);
+	printf("%s\n", arg);
 	in = get_instruction(arg);
 	if (!in.name)
 		return (1);
