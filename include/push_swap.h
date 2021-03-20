@@ -6,13 +6,14 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/18 22:39:54 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/19 19:06:35 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 #include "shared.h"
+
 int	process(t_stack *a, t_stack *b);
 
 int	find_median(t_stack *stack);
@@ -32,12 +33,14 @@ void find_big_small(t_stack *st);
 void solve_100(t_stack *a, t_stack *b);
 
 int	has_lower_than_x(t_stack *st, int x);
+
 int	has_between_min_max(t_stack *st, int min, int max);
+
 int	has_upper_than_x(t_stack *st, int x);
 
 void sort_array(int *array, size_t len);
 
-void	find_move(void);
+void find_move(void);
 
 void push_back(t_stack *a, t_stack *b);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 11:13:13 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/19 14:51:45 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/19 19:09:38 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int				inst_exec(char *arg, t_stack *a, t_stack *b)
 	t_instruction	in;
 	
 	data = get_data();
-	printf("%d:	%s\n", data->inst_count++, arg);
-	// printf("%s\n", arg);
+	// printf("%d:	%s\n", data->inst_count++, arg);
+	printf("%s\n", arg);
 	in = get_instruction(arg);
 	if (!in.name)
 		return (1);

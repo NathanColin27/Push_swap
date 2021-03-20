@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve_100.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:35:59 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/19 10:58:16 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/19 18:42:24 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	solve_100(t_stack *a, t_stack *b)
 		push_median(a, b, median, flag);
 		while (b->len)
 		{
-			print_stacks(a, b);
+			// print_stacks(a, b);
 			find_big_small(b);
 			find_move();
 			push_back(a, b);

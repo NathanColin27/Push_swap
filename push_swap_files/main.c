@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:32:42 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/19 14:39:14 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/19 18:45:34 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int main(int argc, char **argv)
 	if (is_sorted(a))
 		return (0);
 	process(a, b);
-	print_stacks(a,b);
+	// print_stacks(a,b);
 	return (0);
 }

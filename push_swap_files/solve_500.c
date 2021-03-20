@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve_500.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/19 14:51:31 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/19 18:42:13 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,5 @@ void solve_500(t_stack *a, t_stack *b)
 		}
 		chunk_num++;
 	}
-	printf("%d\n", chunk_total);
+	// printf("%d\n", chunk_total);
 }
