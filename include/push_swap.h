@@ -6,12 +6,13 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/19 19:06:35 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/21 21:59:31 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
+
 #include "shared.h"
 
 int	process(t_stack *a, t_stack *b);
@@ -48,4 +49,4 @@ void reset_data(void);
 
 void solve_500(t_stack *a, t_stack *b);
 
-#endif 
+#endif

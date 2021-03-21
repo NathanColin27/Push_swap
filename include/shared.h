@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   shared.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:04 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/18 17:30:59 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/21 22:00:09 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHARED_H
 #define SHARED_H
-#include "../libft/includes/libft.h"
 
+#include "../libft/includes/libft.h"
 /* structs */
 
 typedef	struct	s_stack
 {
-	int	*numbers;
+	int		*numbers;
 	size_t	size;
 	size_t	len;
 	t_list	*partitions;
@@ -48,14 +48,13 @@ typedef struct	s_data
 	int		inst_count;
 }				t_data;
 
-
 /* stack */
 
-t_stack		*create_stack(size_t size);
+t_stack			*create_stack(size_t size);
 
-t_stack		*parse_stack(int ac, char **av);
+t_stack			*parse_stack(int ac, char **av);
 
-void		print_stacks(t_stack *st_a, t_stack *st_b);
+void			print_stacks(t_stack *st_a, t_stack *st_b);
 
 /* instructions */
 
@@ -86,6 +85,5 @@ void			rev_rot_b(t_stack *a, t_stack *b);
 void			rev_rot_ab(t_stack *a, t_stack *b);
 
 t_data			*get_data();
-
 
 #endif

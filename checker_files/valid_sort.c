@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:16:30 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/11 13:30:13 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/21 22:04:50 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int		valid_sort(t_stack *a, t_stack *b)
 {
 	size_t i;
-	
+
 	if (b->len > 0 || a->len != a->size)
 		return (0);
 	i = 0;
