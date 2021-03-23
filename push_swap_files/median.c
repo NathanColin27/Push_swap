@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   median.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 18:15:11 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/19 11:13:09 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/23 22:15:37 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		has_between_min_max(t_stack *st, int min, int max)
 	i = 0;
 	while (i < st->len)
 	{
-		if (st->numbers[i] >= min && st->numbers[i] <= max)
+		if (st->numbers[i] >= min && st->numbers[i] < max)
 			return (1);
 		i++;
 	}

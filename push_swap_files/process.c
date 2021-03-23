@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:08:48 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/19 11:32:42 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/23 23:41:09 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	process(t_stack *a, t_stack *b)
 	if (a->size <= 6)
 		solve_up_to_6(a, b);
 	else if (a->size <= 100)
-		solve_100(a,b);
+		solve(a,b,3);
 	else
 	{
-		solve_500(a,b);
+		solve(a,b,8);
 	}
 	
 	// else

@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/21 21:59:31 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/23 23:27:18 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ void push_back(t_stack *a, t_stack *b);
 
 void reset_data(void);
 
-void solve_500(t_stack *a, t_stack *b);
+void solve(t_stack *a, t_stack *b, int chunk);
 
 #endif

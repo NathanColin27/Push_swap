@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 11:13:13 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/21 21:42:02 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/23 22:30:28 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int				inst_exec(char *arg, t_stack *a, t_stack *b)
 	t_instruction	in;
 	
 	data = get_data();
+	data->inst_count++;
 	// printf("%d:	%s\n", data->inst_count++, arg);
 	printf("%s\n", arg);
 	in = get_instruction(arg);

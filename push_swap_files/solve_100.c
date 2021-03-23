@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:35:59 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/19 18:42:24 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/23 22:00:09 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,12 @@ void	push_back(t_stack *a, t_stack *b)
 	inst_exec("pa", a, b);
 	d->small_flag ? inst_exec("ra", a, b) : 0;
 	d->big_flag ? d->rotate_left++ : 0;
+	// // printf("rot_left : %zu, a->len : %zu\n", (size_t)d->rotate_left, a->len);
+	// if ((size_t)d->rotate_left > a->len/2)
+	// {
+	// 	d->rotate_left = a->len/2 - d->rotate_left;
+	// 	print_stacks(a,b);
+	// }
 }
 
 void	solve_100(t_stack *a, t_stack *b)
