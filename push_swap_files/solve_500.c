@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/24 12:41:44 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/24 14:34:25 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,9 @@ void solve(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 {
 	while(a->len)
 	{
+		printf("pushing Chunk %d to stack b\n", chunk_num);
 		push_chunks(a,b, chunk_total, chunk_num);
+		printf("Chunk %d pushed to stack b\n", chunk_num);
 		while (b->len)
 		{
 			find_big_small(b);
