@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 10:21:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/11 13:39:21 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/24 12:00:22 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ int main(int argc, char **argv)
 		printf("OK\n");
 	else
 		printf("KO\n");
-	// print_stacks(st_a, st_b);
 	return (0);
 }

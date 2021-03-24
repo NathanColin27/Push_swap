@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/23 23:27:18 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/24 12:01:50 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ void push_back(t_stack *a, t_stack *b);
 
 void reset_data(void);
 
-void solve(t_stack *a, t_stack *b, int chunk);
+void solve(t_stack *a, t_stack *b, int chunk_total, int chunk_num);
+
+void push_chunks(t_stack *a, t_stack *b, int chunk_total, int chunk_num);
+
+void init_data(t_data *data, t_stack *a, t_stack *b);
 
 #endif

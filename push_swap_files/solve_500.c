@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve_500.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/23 23:29:01 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/24 12:41:44 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,19 @@ int	chunk_end_to_bot(t_stack *a, int min)
 	return (i);
 }
 
-void push_quarters(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
+void push_chunks(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 {
 	size_t count = 0;
-	int chunk_upper_limit;
-	int chunk_lower_limit; 
+	int chunk_top;
+	int chunk_bot; 
 	
-	chunk_lower_limit = find_chunks(a, chunk_total, chunk_num, 1);
-	chunk_upper_limit = find_chunks(a, chunk_total, chunk_num, 0);
-	while (count <= a->size - 1 && has_between_min_max(a, chunk_lower_limit, chunk_upper_limit))
+	chunk_bot = find_chunks(a, chunk_total, chunk_num, 1);
+	chunk_top = find_chunks(a, chunk_total, chunk_num, 0);
+	while (count <= a->size - 1 && has_between_min_max(a, chunk_bot, chunk_top))
 	{
-		if (a->numbers[a->len - 1] < chunk_upper_limit && a->numbers[a->len - 1] >= chunk_lower_limit) 
+		if (a->numbers[a->len - 1] < chunk_top && a->numbers[a->len - 1] >= chunk_bot) 
 			inst_exec("pb", a, b);
-		else if (a->numbers[a->len - 1] <= chunk_upper_limit && a->numbers[a->len - 1] >= chunk_lower_limit && chunk_num == chunk_total)
+		else if (a->numbers[a->len - 1] >= chunk_bot && chunk_num == chunk_total)
 			inst_exec("pb", a, b);
 		else
 			inst_exec("ra", a, b);
@@ -81,31 +81,22 @@ void push_quarters(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 	}
 	if(chunk_num > 1)
 	{
-		if (chunk_end_to_bot(a, chunk_lower_limit) >= chunk_end_to_top(a, chunk_lower_limit))
-		{
-			while (a->numbers[0] != chunk_lower_limit - 1)
+		if (chunk_end_to_bot(a, chunk_bot) >= chunk_end_to_top(a, chunk_bot))
+			while (a->numbers[0] != chunk_bot - 1)
 				inst_exec("ra", a, b);
-		}
 		else
-		{
-			while (a->numbers[0] != chunk_lower_limit - 1)
+			while (a->numbers[0] != chunk_bot - 1)
 				inst_exec("rra", a, b);
-		}
 	}
 }
 
-void solve(t_stack *a, t_stack *b, int chunk_total)
+void solve(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 {
-	int chunk_num;
-
-	chunk_num = 1;
 	while(a->len)
 	{
-		push_quarters(a,b, chunk_total, chunk_num);
+		push_chunks(a,b, chunk_total, chunk_num);
 		while (b->len)
 		{
-			// sleep(1);
-			// print_stacks(a,b)
 			find_big_small(b);
 			find_move();
 			push_back(a, b);
@@ -118,11 +109,10 @@ void solve(t_stack *a, t_stack *b, int chunk_total)
 		}
 		if(chunk_num == chunk_total)
 		{
-			while (!is_sorted(a) && get_data()->inst_count < 8500)
+			while (!is_sorted(a))
 				inst_exec("ra", a, b);
 			break ;
 		}
 		chunk_num++;
 	}
-	// printf("%d\n", chunk_total);
 }
