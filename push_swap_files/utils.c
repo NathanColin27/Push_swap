@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:27:16 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/24 10:45:30 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/24 17:41:56 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,14 @@ void	push_back(t_stack *a, t_stack *b)
 		while (d->b_rrot-- >= 0)
 			inst_exec("rrb", a, b);
 	inst_exec("pa", a, b);
-	d->small_flag ? inst_exec("ra", a, b) : 0;
-	d->big_flag ? d->rotate_left++ : 0;
+	int tmp = d->small_flag;
+	reset_data();
+	find_big_small(b);
+	find_move();
+	if (tmp && d->s_rot)
+		inst_exec("rr", a, b);
+	else if (tmp)
+		inst_exec("ra", a, b);
 }
 
 
@@ -108,69 +114,3 @@ int		exit_error(void)
 	exit(0);
 }
 
-void	reset_data(void)
-{
-	t_data *data;
-
-	data = get_data();
-	data->b_biggest = 0;
-	data->b_rot = 0;
-	data->b_rrot = 0;
-	data->b_smallest = 0;
-	data->big_flag = 0;
-	data->small_flag = 0;
-	data->s_rot = 0;
-	data->s_rrot = 0;
-}
-
-int		find_smallest(t_stack *st)
-{
-	int		res;
-	size_t	i;
-
-	res = st->numbers[0];
-	i = 1;
-	while (i < st->len)
-	{
-		if (st->numbers[i] < res)
-			res = st->numbers[i];
-		i++;
-	}
-	return (res);
-}
-
-int		find_biggest(t_stack *st)
-{
-	int		res;
-	size_t	i;
-
-	res = st->numbers[0];
-	i = 1;
-	while (i < st->len)
-	{
-		if (st->numbers[i] > res)
-			res = st->numbers[i];
-		i++;
-	}
-	return (res);
-}
-
-void	find_big_small(t_stack *st)
-{
-	get_data()->b_biggest = find_biggest(st);
-	get_data()->b_smallest = find_smallest(st);
-}
-
-int		is_sorted(t_stack *a)
-{
-	size_t i;
-
-	i = 0;
-	while (i < a->len - 1)
-	{
-		if (a->numbers[i] < a->numbers[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}

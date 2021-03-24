@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:04 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/24 11:07:33 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/24 15:51:54 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	s_data
 
 	int		b_biggest;
 	int		b_smallest;
+	int		chunk_top;
 
 	int		s_rot;
 	int		s_rrot;

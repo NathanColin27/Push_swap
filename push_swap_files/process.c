@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:08:48 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/24 14:37:17 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/24 17:30:49 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,6 @@ int solve_mute(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 			find_move();
 			push_back(a, b);
 			reset_data();
-		}
-		if (chunk_num < chunk_total)
-		{
-			while (a->numbers)
 		}
 		if (chunk_num == chunk_total)
 		{
@@ -76,6 +72,7 @@ int try_chunk_numbers(t_stack *a, t_stack *b, int chunk_total)
 		chunk_total++;
 	}
 	copy_array(a->numbers, tmp, a->size);
+	free(tmp);
 	return(result);
 }
 

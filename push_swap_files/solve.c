@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solve_500.c                                        :+:      :+:    :+:   */
+/*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/24 14:34:25 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/24 18:26:07 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ void push_chunks(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 	
 	chunk_bot = find_chunks(a, chunk_total, chunk_num, 1);
 	chunk_top = find_chunks(a, chunk_total, chunk_num, 0);
-	while (count <= a->size - 1 && has_between_min_max(a, chunk_bot, chunk_top))
+	get_data()->chunk_top = chunk_top;
+	while (has_between_min_max(a, chunk_bot, chunk_top))
 	{
 		if (a->numbers[a->len - 1] < chunk_top && a->numbers[a->len - 1] >= chunk_bot) 
 			inst_exec("pb", a, b);
@@ -90,28 +91,55 @@ void push_chunks(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 	}
 }
 
+void	solve_3_inverted_b(t_stack *a, t_stack *b)
+{
+	int top;
+	int mid;
+	int bot;
+
+	top = b->numbers[2];
+	mid = b->numbers[1];
+	bot = b->numbers[0];
+	if (top > mid && mid < bot && top < bot)
+		inst_exec("rrb", a, b);
+	else if (top > mid && mid < bot && top > bot)
+	{
+		inst_exec("sb", a, b);
+		inst_exec("rb", a, b);
+	}
+	else if (top < mid && bot > mid && bot > top)
+	{
+		inst_exec("sb", a, b);
+		inst_exec("rrb", a, b);
+	}
+	else if (top < mid && mid > bot && top < bot)
+		inst_exec("rb", a, b);
+	else if (top < mid && mid > bot && top > bot)
+		inst_exec("sb", a, b);
+}
+
 void solve(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 {
 	while(a->len)
 	{
-		printf("pushing Chunk %d to stack b\n", chunk_num);
 		push_chunks(a,b, chunk_total, chunk_num);
-		printf("Chunk %d pushed to stack b\n", chunk_num);
 		while (b->len)
 		{
 			find_big_small(b);
 			find_move();
 			push_back(a, b);
 			reset_data();
-		}
-		while (get_data()->rotate_left != 0)
-		{
-			inst_exec("ra", a, b);
-			get_data()->rotate_left--;
+			// if (b->len == 3)
+			// {
+			// 	solve_3_inverted_b(a,b);
+			// 	inst_exec("pa", a,b);
+			// 	inst_exec("pa", a,b);
+			// 	inst_exec("pa", a,b);
+			// }
 		}
 		if(chunk_num == chunk_total)
 		{
-			while (!is_sorted(a))
+			while (!is_sorted(a) && get_data()->inst_count < 1000)
 				inst_exec("ra", a, b);
 			break ;
 		}

@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/24 12:01:50 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/24 17:59:56 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,7 @@ void push_chunks(t_stack *a, t_stack *b, int chunk_total, int chunk_num);
 
 void init_data(t_data *data, t_stack *a, t_stack *b);
 
+void	solve_3(t_stack *a, t_stack *b);
+
+void	solve_3_inverted(t_stack *a, t_stack *b);
 #endif
