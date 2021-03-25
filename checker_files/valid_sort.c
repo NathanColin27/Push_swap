@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   valid_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:16:30 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/21 22:04:50 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/25 18:38:13 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 #include "checker.h"
-
-/* returns 1 if stack a is correctly sorted */
 
 int		valid_sort(t_stack *a, t_stack *b)
 {

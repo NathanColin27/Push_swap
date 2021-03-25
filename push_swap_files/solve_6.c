@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:43:21 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/24 12:40:52 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/25 18:21:59 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,60 +17,6 @@ void	solve_2(t_stack *a, t_stack *b)
 {
 	if (a->numbers[0] < a->numbers[1])
 		inst_exec("ra", a, b);
-}
-
-void	solve_3_inverted(t_stack *a, t_stack *b)
-{
-	int top;
-	int mid;
-	int bot;
-
-	top = a->numbers[2];
-	mid = a->numbers[1];
-	bot = a->numbers[0];
-	if (top > mid && mid < bot && top < bot)
-		inst_exec("rra", a, b);
-	else if (top > mid && mid < bot && top > bot)
-	{
-		inst_exec("sa", a, b);
-		inst_exec("ra", a, b);
-	}
-	else if (top < mid && bot > mid && bot > top)
-	{
-		inst_exec("sa", a, b);
-		inst_exec("rra", a, b);
-	}
-	else if (top < mid && mid > bot && top < bot)
-		inst_exec("ra", a, b);
-	else if (top < mid && mid > bot && top > bot)
-		inst_exec("sa", a, b);
-}
-
-void	solve_3(t_stack *a, t_stack *b)
-{
-	int top;
-	int mid;
-	int bot;
-
-	top = a->numbers[2];
-	mid = a->numbers[1];
-	bot = a->numbers[0];
-	if (top > mid && mid < bot && top < bot)
-		inst_exec("sa", a, b);
-	else if (top > mid && mid < bot && top > bot)
-		inst_exec("ra", a, b);
-	else if (top < mid && mid > bot && bot > top)
-	{
-		inst_exec("sa", a, b);
-		inst_exec("ra", a, b);
-	}
-	else if (top > mid && mid > bot && top > bot)
-	{
-		inst_exec("sa", a, b);
-		inst_exec("rra", a, b);
-	}
-	else
-		inst_exec("rra", a, b);
 }
 
 void	solve_4(t_stack *a, t_stack *b)

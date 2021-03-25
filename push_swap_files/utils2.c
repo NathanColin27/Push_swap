@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 17:42:06 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/24 17:42:38 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/25 18:25:55 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,30 @@ void	find_big_small(t_stack *st)
 	get_data()->b_smallest = find_smallest(st);
 }
 
+void	sort_array(int *array, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	int		tmp;
+
+	i = 0;
+	tmp = 0;
+	while (i < len)
+	{
+		j = 0;
+		while (j < len - 1)
+		{
+			if (array[j] > array[j + 1])
+			{
+				tmp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
+}
 int		is_sorted(t_stack *a)
 {
 	size_t i;

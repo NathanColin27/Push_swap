@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 11:13:13 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/24 11:15:36 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/25 18:27:32 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 t_instruction	get_instruction(char *arg)
 {
-	t_instruction	tab[12] = {
+	static t_instruction	tab[12] = {
 		{"sa", &swap_a},
 		{"sb", &swap_b},
 		{"ss", &swap_ab},
@@ -28,7 +28,7 @@ t_instruction	get_instruction(char *arg)
 		{"rrb", &rev_rot_b},
 		{"rrr", &rev_rot_ab}
 	};
-	size_t			i;
+	size_t					i;
 
 	i = 0;
 	while (i < 11)
@@ -51,11 +51,14 @@ int				inst_exec(char *arg, t_stack *a, t_stack *b)
 {
 	t_data			*data;
 	t_instruction	in;
-	
+
 	data = get_data();
 	data->inst_count++;
-	if(data->print_flag)
-		printf("%s\n", arg);
+	if (data->print_flag)
+	{
+		write(1, arg, ft_strlen(arg));
+		write(1, "\n", 1);
+	}
 	in = get_instruction(arg);
 	if (!in.name)
 		return (1);

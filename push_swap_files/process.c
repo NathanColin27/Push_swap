@@ -6,19 +6,19 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:08:48 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/24 17:30:49 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/25 18:47:37 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 #include "push_swap.h"
 
-int solve_mute(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
+int		solve_mute(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 {
 	get_data()->print_flag = 0;
-	while(a->len)
+	while (a->len)
 	{
-		push_chunks(a,b, chunk_total, chunk_num);
+		push_chunks(a, b, chunk_total, chunk_num);
 		while (b->len)
 		{
 			find_big_small(b);
@@ -37,7 +37,7 @@ int solve_mute(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 	return (get_data()->inst_count);
 }
 
-void copy_array(int *dest_array,int *src_array, size_t size)
+void	copy_array(int *dest_array,int *src_array, size_t size)
 {
 	size_t i;
 
@@ -49,7 +49,7 @@ void copy_array(int *dest_array,int *src_array, size_t size)
 	}
 }
 
-int try_chunk_numbers(t_stack *a, t_stack *b, int chunk_total)
+int		try_chunk_numbers(t_stack *a, t_stack *b, int chunk_total)
 {
 	int min_inst_count;
 	int current_inst_count;
@@ -63,7 +63,7 @@ int try_chunk_numbers(t_stack *a, t_stack *b, int chunk_total)
 	{
 		init_data(get_data(),a ,b);
 		copy_array(a->numbers, tmp, a->size);
-		current_inst_count = solve_mute(a,b,chunk_total, 1);
+		current_inst_count = solve_mute(a, b, chunk_total, 1);
 		if (current_inst_count < min_inst_count)
 		{
 			min_inst_count = current_inst_count;
@@ -73,10 +73,10 @@ int try_chunk_numbers(t_stack *a, t_stack *b, int chunk_total)
 	}
 	copy_array(a->numbers, tmp, a->size);
 	free(tmp);
-	return(result);
+	return (result);
 }
 
-int	process(t_stack *a, t_stack *b)
+int		process(t_stack *a, t_stack *b)
 {
 	int best_chunk_num;
 	
@@ -84,9 +84,9 @@ int	process(t_stack *a, t_stack *b)
 		solve_up_to_6(a, b);
 	else
 	{
-		best_chunk_num = try_chunk_numbers(a,b, 1);
-		init_data(get_data(),a,b);
-		solve(a,b,best_chunk_num, 1);
+		best_chunk_num = try_chunk_numbers(a, b, 1);
+		init_data(get_data(), a, b);
+		solve(a, b, best_chunk_num, 1);
 	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   median.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 18:15:11 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/23 22:15:37 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/25 18:49:22 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ int		has_upper_than_x(t_stack *st, int x)
 	return (0);
 }
 
-// number[0] == bottom of stack
-// number[len - 1] == top
 void	push_median(t_stack *a, t_stack *b, int median, int flag)
 {
 	size_t count;
@@ -68,7 +66,8 @@ void	push_median(t_stack *a, t_stack *b, int median, int flag)
 		{
 			if (a->numbers[a->len - 1] < median)
 				inst_exec("pb", a, b);
-			else if (a->numbers[a->len - 1] >= median && has_lower_than_x(a, median))
+			else if (a->numbers[a->len - 1] >= median &&\
+							has_lower_than_x(a, median))
 				inst_exec("ra", a, b);
 			count++;
 		}
@@ -85,31 +84,6 @@ void	push_median(t_stack *a, t_stack *b, int median, int flag)
 	}
 }
 
-void	sort_array(int *array, size_t len)
-{
-	size_t	i;
-	size_t	j;
-	int		tmp;
-
-	i = 0;
-	tmp = 0;
-	while (i < len)
-	{
-		j = 0;
-		while (j < len - 1)
-		{
-			if (array[j] > array[j + 1])
-			{
-				tmp = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = tmp;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
 int		find_median(t_stack *stack)
 {
 	int		*array;
@@ -117,7 +91,7 @@ int		find_median(t_stack *stack)
 	size_t	i;
 
 	i = 0;
-	if (!(array = (int *)malloc(sizeof(int)*stack->len)))
+	if (!(array = (int *)malloc(sizeof(int) * stack->len)))
 		printf("malloc error");
 	while (i < stack->len)
 	{

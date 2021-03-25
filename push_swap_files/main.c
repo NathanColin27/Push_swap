@@ -6,14 +6,14 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:32:42 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/24 12:41:18 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/25 18:45:40 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
 #include "push_swap.h"
 
-void init_data(t_data *data, t_stack *a, t_stack *b)
+void	init_data(t_data *data, t_stack *a, t_stack *b)
 {
 	data->a = a;
 	data->b = b;
@@ -30,7 +30,7 @@ void init_data(t_data *data, t_stack *a, t_stack *b)
 	data->big_flag = 0;
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	b = create_stack(a->size);
 	if (!b)
 		return (exit_error());
-	init_data(data,a ,b);
+	init_data(data, a, b);
 	if (is_sorted(a))
 		return (0);
 	process(a, b);

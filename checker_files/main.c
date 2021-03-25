@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 10:21:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/24 12:00:22 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/25 18:38:38 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		print_error(void)
 	return (1);
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_stack	*st_a;
 	t_stack	*st_b;

@@ -6,15 +6,13 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:04 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/24 15:51:54 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/25 18:39:38 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHARED_H
-#define SHARED_H
-
+# define SHARED_H
 #include "../libft/includes/libft.h"
-/* structs */
 
 typedef	struct	s_stack
 {
@@ -50,15 +48,11 @@ typedef struct	s_data
 	int		print_flag;
 }				t_data;
 
-/* stack */
-
 t_stack			*create_stack(size_t size);
 
 t_stack			*parse_stack(int ac, char **av);
 
 void			print_stacks(t_stack *st_a, t_stack *st_b);
-
-/* instructions */
 
 t_instruction	get_instruction(char *arg);
 
