@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:32:42 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/25 18:45:40 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/29 23:28:38 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int		main(int argc, char **argv)
 		return (1);
 	a = parse_stack(argc, argv);
 	if (!a)
-		return (exit_error());
+		ft_error();
 	b = create_stack(a->size);
 	if (!b)
-		return (exit_error());
+		ft_error();
 	init_data(data, a, b);
 	if (is_sorted(a))
 		return (0);

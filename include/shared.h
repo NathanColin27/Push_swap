@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shared.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:04 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/25 18:39:38 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/29 23:07:33 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct	s_data
 	int		b_biggest;
 	int		b_smallest;
 	int		chunk_top;
-
 	int		s_rot;
 	int		s_rrot;
 	int		b_rot;
@@ -80,6 +79,10 @@ void			rev_rot_b(t_stack *a, t_stack *b);
 
 void			rev_rot_ab(t_stack *a, t_stack *b);
 
-t_data			*get_data();
+t_data			*get_data(void);
+
+void			ft_error(void);
+
+void			ft_free_all(void);
 
 #endif

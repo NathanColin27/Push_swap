@@ -6,15 +6,26 @@
 #    By: nathan <nathan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/08 10:35:48 by ncolin            #+#    #+#              #
-#    Updated: 2021/03/29 12:53:56 by nathan           ###   ########.fr        #
+#    Updated: 2021/03/29 23:04:42 by nathan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CHECKER_NAME = checker
 PUSHSWAP_NAME = push_swap
 
+OS = $(shell uname -s)
+ifeq ($(OS), Linux)
+	TICK = \342\234\224
+	RE = \342\231\272
+	TRASH = \360\237\227\221
+else
+	TICK = \xE2\x9C\x94
+	RE = \xE2\x99\xBA
+	TRASH = \xF0\x9F\x97\x91
+endif
+
 CC = clang -g
-CFLAGS = -Wall -Wextra -Werror -I include 
+CFLAGS = -Wall -Wextra -Werror -I include
 
 CHECKER_SRCS =	$(wildcard shared/*/*.c) \
 				$(wildcard checker_files/*.c)

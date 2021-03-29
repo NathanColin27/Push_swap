@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   stack_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:41:39 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/19 10:47:24 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/29 23:24:13 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared.h"
+#include "checker.h"
 
 static int	valid_integer(char *s)
 {
@@ -40,7 +41,7 @@ t_stack		*parse_stack(int ac, char **av)
 	while (i < stack->size)
 	{
 		if (!valid_integer(av[i + 1]))
-			return (0);
+			ft_error(); 
 		stack->numbers[stack->size - i - 1] = ft_atoi(av[i + 1]);
 		i++;
 	}
