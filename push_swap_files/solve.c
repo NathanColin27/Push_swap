@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/25 18:56:26 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/29 11:39:05 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	push_chunks(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 	get_data()->chunk_top = chunk_top;
 	while (has_between_min_max(a, chunk_bot, chunk_top))
 	{
-		if (a->numbers[a->len - 1] < chunk_top && a->numbers[a->len - 1] >= chunk_bot) ||
+		if (a->numbers[a->len - 1] < chunk_top && a->numbers[a->len - 1] >= chunk_bot)
 			inst_exec("pb", a, b);
 		else if (a->numbers[a->len - 1] >= chunk_bot && chunk_num == chunk_total)
 			inst_exec("pb", a, b);

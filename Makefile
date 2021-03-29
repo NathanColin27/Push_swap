@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+         #
+#    By: nathan <nathan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/08 10:35:48 by ncolin            #+#    #+#              #
-#    Updated: 2021/03/09 10:45:10 by ncolin           ###   ########.fr        #
+#    Updated: 2021/03/29 11:36:20 by nathan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ clean:
 					@echo "\033[32;1m\rDirectory cleaned ${TRASH}          \033[0m"
 
 fclean:				clean fclean_libft
-					rm -rf $(CHECKER_OBJS) $(PUSHSWAP_OBJS)
+					rm -rf $(CHECKER_NAME) $(PUSHSWAP_NAME)
 					@echo "\033[32;1m\rDirectory fully cleaned ${TRASH} ${TRASH} ${TRASH}          \033[0m"
 					
 re:					fclean all
