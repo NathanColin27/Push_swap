@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_move.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 18:29:06 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/25 18:45:54 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/29 12:40:26 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void	to_top(void)
 {
 	t_stack	*stack;
-	int		i;
+	size_t		i;
 	t_data	*data;
 
 	data = get_data();
@@ -62,8 +62,11 @@ void		find_move(void)
 	t_data *d;
 
 	d = get_data();
-	to_top();
-	to_bot();
+	if (get_data()->b->len >= 2)
+	{
+		to_top();
+		to_bot();
+	}
 	if (d->b_rot >= d->s_rot && d->b_rot >= d->s_rrot)
 		d->b_rot = -1;
 	else if (d->b_rrot >= d->s_rot && d->b_rrot >= d->s_rrot)

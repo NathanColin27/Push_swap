@@ -6,7 +6,7 @@
 #    By: nathan <nathan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/08 10:35:48 by ncolin            #+#    #+#              #
-#    Updated: 2021/03/29 11:36:20 by nathan           ###   ########.fr        #
+#    Updated: 2021/03/29 12:53:56 by nathan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CHECKER_NAME = checker
 PUSHSWAP_NAME = push_swap
 
 CC = clang -g
-CFLAGS = -Wall -Wextra -Werror -I include
+CFLAGS = -Wall -Wextra -Werror -I include 
 
 CHECKER_SRCS =	$(wildcard shared/*/*.c) \
 				$(wildcard checker_files/*.c)

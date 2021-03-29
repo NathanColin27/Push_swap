@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 12:07:32 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/21 22:02:40 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/29 13:24:27 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,19 @@ t_list	*get_input(void)
 	char	*line;
 
 	head = NULL;
-	while (get_next_line(0, &line) > 0)
+	while (get_next_line(STDIN_FILENO, &line) > 0)
 	{
+		
+		write(1, line, ft_strlen(line));
+		write(1, "\n", 1);
 		node = ft_lstnew(line);
 		if (!node)
 			return (NULL);
 		ft_lstadd_back(&head, node);
+		free(line);
 	}
 	node = ft_lstnew(line);
+
 	if (!node)
 		return (NULL);
 	ft_lstadd_back(&head, node);

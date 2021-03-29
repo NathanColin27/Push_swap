@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/29 11:39:05 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/29 12:17:48 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		find_chunks(t_stack *stack, int chunk_total, int chunk_num, int flag)
 	int		*array;
 	int		ret;
 	size_t	i;
+	int		index;
 
 	i = 0;
 	if (!(array = (int*)malloc(sizeof(int) * stack->len)))
@@ -28,7 +29,10 @@ int		find_chunks(t_stack *stack, int chunk_total, int chunk_num, int flag)
 		i++;
 	}
 	sort_array(array, stack->len);
-	ret = array[((stack->len) / chunk_total) * (chunk_num - flag) - 1];
+	index = ((stack->len) / chunk_total) * (chunk_num - flag) - 1;
+	if ((size_t)index >= stack->len)
+		index = 0;
+	ret = array[index];
 	if (chunk_num == 1 && flag == 1)
 		ret = array[0];
 	if (chunk_num == chunk_total && flag == 0)
@@ -111,7 +115,7 @@ void	solve(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 		}
 		if (chunk_num == chunk_total)
 		{
-			while (!is_sorted(a))
+			while (!is_sorted(a) && get_data()->inst_count < 1000)
 				inst_exec("ra", a, b);
 			break ;
 		}

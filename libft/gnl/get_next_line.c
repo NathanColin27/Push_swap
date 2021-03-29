@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 09:55:48 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/29 11:38:53 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/29 13:24:49 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int			get_next_line(int fd, char **line)
 	ret = 0;
 	if (fd < 0 || !line || BUFFER_SIZE < 1)
 		return (-1);
-	while (!ft_strchr(tab[fd], '\n') && (ret = read(fd, buf, BUFFER_SIZE)) > 0)
+	while ((ret = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
 		if (tab[fd] == NULL)
