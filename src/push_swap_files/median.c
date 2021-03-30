@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 18:15:11 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/30 13:11:27 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 14:20:08 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	push_median(t_stack *a, t_stack *b, int median, int flag)
 
 	count = 0;
 	if (flag == 1)
-	{
 		while (count <= a->size && has_lower_than_x(a, median))
 		{
 			if (a->numbers[a->len - 1] < median)
@@ -71,9 +70,7 @@ void	push_median(t_stack *a, t_stack *b, int median, int flag)
 				inst_exec("ra", a, b);
 			count++;
 		}
-	}
 	else
-	{
 		while (count <= a->size && has_upper_than_x(a, median))
 		{
 			if (a->numbers[a->len - 1] >= median)
@@ -83,7 +80,6 @@ void	push_median(t_stack *a, t_stack *b, int median, int flag)
 				inst_exec("ra", a, b);
 			count++;
 		}
-	}
 }
 
 int		find_median(t_stack *stack)
@@ -94,7 +90,7 @@ int		find_median(t_stack *stack)
 
 	i = 0;
 	if (!(array = (int *)malloc(sizeof(int) * stack->len)))
-		printf("malloc error");
+		return (0);
 	while (i < stack->len)
 	{
 		array[i] = stack->numbers[i];

@@ -6,14 +6,14 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/30 13:13:04 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 14:35:33 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "shared.h"
 
-int		find_chunks(t_stack *stack, int chunk_total, int chunk_num, int flag)
+int			find_chunks(t_stack *stack, int chunk_tot, int chunk_num, int flag)
 {
 	int		*array;
 	int		ret;
@@ -29,19 +29,19 @@ int		find_chunks(t_stack *stack, int chunk_total, int chunk_num, int flag)
 		i++;
 	}
 	sort_array(array, stack->len);
-	index = ((stack->len) / chunk_total) * (chunk_num - flag) - 1;
+	index = ((stack->len) / chunk_tot) * (chunk_num - flag) - 1;
 	if ((size_t)index >= stack->len)
 		index = 0;
 	ret = array[index];
 	if (chunk_num == 1 && flag == 1)
 		ret = array[0];
-	if (chunk_num == chunk_total && flag == 0)
+	if (chunk_num == chunk_tot && flag == 0)
 		ret = array[stack->len - 1];
 	free(array);
 	return (ret);
 }
 
-void	push_back(t_stack *a, t_stack *b)
+void		push_back(t_stack *a, t_stack *b)
 {
 	t_data	*d;
 	int		tmp;
@@ -70,16 +70,21 @@ void	push_back(t_stack *a, t_stack *b)
 		inst_exec("ra", a, b);
 }
 
-void reset_position()
+static void	reset_position(t_stack *a, t_stack *b, int end)
 {
-	
+	if (chunk_end_to_bot(a, end) >= chunk_end_to_top(a, end))
+		while (a->numbers[0] != end - 1)
+			inst_exec("ra", a, b);
+	else
+		while (a->numbers[0] != end - 1)
+			inst_exec("rra", a, b);
 }
 
-void	push_chunks(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
+void		push_chunks(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 {
 	size_t	count;
 	int		chunk_top;
-	int		chunk_bot; 
+	int		chunk_bot;
 
 	count = 0;
 	chunk_bot = find_chunks(a, chunk_total, chunk_num, 1);
@@ -87,30 +92,25 @@ void	push_chunks(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 	get_data()->chunk_top = chunk_top;
 	while (has_between_min_max(a, chunk_bot, chunk_top))
 	{
-		if (a->numbers[a->len - 1] < chunk_top && a->numbers[a->len - 1] >= chunk_bot)
+		if (a->numbers[a->len - 1] < chunk_top && a->numbers[a->len - 1]\
+													>= chunk_bot)
 			inst_exec("pb", a, b);
-		else if (a->numbers[a->len - 1] >= chunk_bot && chunk_num == chunk_total)
+		else if (a->numbers[a->len - 1] >= chunk_bot && chunk_num\
+													== chunk_total)
 			inst_exec("pb", a, b);
 		else
 			inst_exec("ra", a, b);
-		count ++;
+		count++;
 	}
 	if (chunk_num > 1)
-	{
-		if (chunk_end_to_bot(a, chunk_bot) >= chunk_end_to_top(a, chunk_bot))
-			while (a->numbers[0] != chunk_bot - 1)
-				inst_exec("ra", a, b);
-		else
-			while (a->numbers[0] != chunk_bot - 1)
-				inst_exec("rra", a, b);
-	}
+		reset_position(a, b, chunk_bot);
 }
 
-void	solve(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
+void		solve(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 {
 	while (a->len)
 	{
-		push_chunks(a,b, chunk_total, chunk_num);
+		push_chunks(a, b, chunk_total, chunk_num);
 		while (b->len)
 		{
 			find_big_small(b);

@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 16:43:23 by ncolin            #+#    #+#             */
-/*   Updated: 2020/06/28 18:12:01 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 14:36:40 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,13 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-
-
-/*  _     ___ ____  _____ _____ 
-** | |   |_ _| __ )|  ___|_   _|
-** | |    | ||  _ \| |_    | |  
-** | |___ | || |_) |  _|   | |  
-** |_____|___|____/|_|     |_|  
-*/                              
-
+/*
+**	 _     ___ ____  _____ _____
+**	| |   |_ _| __ )|  ___|_   _|
+**	| |    | ||  _ \| |_    | |
+**	| |___ | || |_) |  _|   | |
+**	|_____|___|____/|_|     |_|
+*/
 
 /*
 **		char
@@ -53,7 +51,7 @@ int					ft_tolower(int c);
 
 int					ft_toupper(int c);
 
-int 				ft_isspace(int c);
+int					ft_isspace(int c);
 /*
 ** string
 */
@@ -62,7 +60,7 @@ char				**ft_split(char const *str, char sep);
 
 char				*ft_strchr(char const *str, int c);
 
-char    			*ft_strcpy (char *dest, const char *src);
+char				*ft_strcpy (char *dest, const char *src);
 
 char				*ft_strdup(const char *s1);
 
@@ -143,13 +141,12 @@ t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
 
 /*
-**   ____ _____ _____   _   _ _______  _______   _     ___ _   _ _____ 
-**  / ___| ____|_   _| | \ | | ____\ \/ /_   _| | |   |_ _| \ | | ____|
-** | |  _|  _|   | |   |  \| |  _|  \  /  | |   | |    | ||  \| |  _|  
-** | |_| | |___  | |   | |\  | |___ /  \  | |   | |___ | || |\  | |___ 
-**  \____|_____| |_|   |_| \_|_____/_/\_\ |_|   |_____|___|_| \_|_____|                                                                  
+**	  ____ _____ _____   _   _ _______  _______   _     ___ _   _ _____
+**	 / ___| ____|_   _| | \ | | ____\ \/ /_   _| | |   |_ _| \ | | ____|
+**	| |  _|  _|   | |   |  \| |  _|  \  /  | |   | |    | ||  \| |  _|
+**	| |_| | |___  | |   | |\  | |___ /  \  | |   | |___ | || |\  | |___
+**	 \____|_____| |_|   |_| \_|_____/_/\_\ |_|   |_____|___|_| \_|_____|
 */
-
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE	32
@@ -159,9 +156,7 @@ int					ft_lstsize(t_list *lst);
 #  define OPEN_MAX 10240
 # endif
 
-int		ft_del_tab(char **tab);
-int		get_next_line(int fd, char **line);
-
-
+int					ft_del_tab(char **tab);
+int					get_next_line(int fd, char **line);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: nathan <nathan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/08 10:35:48 by ncolin            #+#    #+#              #
-#    Updated: 2021/03/30 12:41:27 by nathan           ###   ########.fr        #
+#    Updated: 2021/03/30 13:26:17 by nathan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ else
 endif
 
 CC = clang -g
-CFLAGS = -Wall -Wextra -Werror -I include -fsanitize=address -fno-omit-frame-pointer -O2
+CFLAGS = -Wall -Wextra -Werror -I include -O2
 
 CHECKER_SRCS =	./src/shared/inst/rev_rot.c\
 				./src/shared/inst/swap.c\

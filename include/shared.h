@@ -6,13 +6,14 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:04 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/29 23:07:33 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 14:34:53 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHARED_H
 # define SHARED_H
-#include "../libft/includes/libft.h"
+
+# include "../libft/includes/libft.h"
 
 typedef	struct	s_stack
 {
@@ -41,7 +42,7 @@ typedef struct	s_data
 	int		b_rot;
 	int		b_rrot;
 	int		small_flag;
-	int 	big_flag;
+	int		big_flag;
 	int		rotate_left;
 	int		inst_count;
 	int		print_flag;

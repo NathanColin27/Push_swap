@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 18:05:50 by nathan            #+#    #+#             */
-/*   Updated: 2020/06/28 18:13:22 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 14:38:46 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 **     BUGS.)
 */
 
-char    *ft_strcpy (char *dest, const char *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
-  return (ft_memcpy (dest, src, ft_strlen(src) + 1));
+	return (ft_memcpy(dest, src, ft_strlen(src) + 1));
 }

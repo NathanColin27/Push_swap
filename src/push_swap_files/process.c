@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:08:48 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/30 13:09:54 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 14:18:59 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		solve_mute(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
 
 void	copy_array(int *dest_array, int *src_array, size_t size)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
 	while (i < size)
@@ -51,10 +51,10 @@ void	copy_array(int *dest_array, int *src_array, size_t size)
 
 int		try_chunk_numbers(t_stack *a, t_stack *b, int chunk_total)
 {
-	int	min_inst_count;
-	int	current_inst_count;
-	int	result;
-	int	*tmp;
+	int min_inst_count;
+	int current_inst_count;
+	int result;
+	int *tmp;
 
 	tmp = ft_calloc(a->size, sizeof(int));
 	copy_array(tmp, a->numbers, a->size);
