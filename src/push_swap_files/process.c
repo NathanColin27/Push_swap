@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:08:48 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/30 14:18:59 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 15:27:03 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ int		process(t_stack *a, t_stack *b)
 
 	if (a->size <= 6)
 		solve_up_to_6(a, b);
+	else if (a->size <= 40)
+		solve(a, b, 1, 1);
 	else
 	{
 		best_chunk_num = try_chunk_numbers(a, b, 1);

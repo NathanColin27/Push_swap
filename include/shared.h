@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:36:04 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/30 14:34:53 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 16:53:11 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,7 @@ typedef struct	s_data
 
 t_stack			*create_stack(size_t size);
 
-t_stack			*parse_stack(int ac, char **av);
-
-void			print_stacks(t_stack *st_a, t_stack *st_b);
+t_stack			*parse_stack(int ac, char **av, t_stack *b, t_data *data);
 
 t_instruction	get_instruction(char *arg);
 
@@ -85,5 +83,9 @@ t_data			*get_data(void);
 void			ft_error(void);
 
 void			ft_free_all(void);
+
+int				has_duplicates(int *array, int size);
+
+long			ft_atoil(const char *str);
 
 #endif

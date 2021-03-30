@@ -6,7 +6,7 @@
 #    By: nathan <nathan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/08 10:35:48 by ncolin            #+#    #+#              #
-#    Updated: 2021/03/30 13:26:17 by nathan           ###   ########.fr        #
+#    Updated: 2021/03/30 17:09:38 by nathan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
 PUSHSWAP_OBJS = $(PUSHSWAP_SRCS:.c=.o)
 
 LDFLAGS = -L libft
-LDLIBS = -lft 
+LDLIBS = -lft
 
 all:				libft $(CHECKER_NAME) $(PUSHSWAP_NAME)
 
@@ -70,12 +70,12 @@ libft:
 					@make -s -C libft
 
 $(CHECKER_NAME):	$(CHECKER_OBJS) libft/libft.a
-					@$(CC) $(CFLAGS) $(CHECKER_OBJS) $(LDFLAGS) $(LDLIBS) -o $(CHECKER_NAME)
-					@echo "\033[32;1m\rChecker compiled ${TICK}          \033[0m"
+					$(CC) $(CFLAGS) $(CHECKER_OBJS) $(LDFLAGS) $(LDLIBS) -o $(CHECKER_NAME)
+					echo "\033[32;1m\rChecker compiled ${TICK}          \033[0m"
 
 $(PUSHSWAP_NAME):	$(PUSHSWAP_OBJS) libft/libft.a
-					@$(CC) $(CFLAGS) $(PUSHSWAP_OBJS) $(LDFLAGS) $(LDLIBS) -o $(PUSHSWAP_NAME)
-					@echo "\033[32;1m\rPush_swap compiled ${TICK}          \033[0m"
+					$(CC) $(CFLAGS) $(PUSHSWAP_OBJS) $(LDFLAGS) $(LDLIBS) -o $(PUSHSWAP_NAME)
+					echo "\033[32;1m\rPush_swap compiled ${TICK}          \033[0m"
 					
 clean_libft:
 					@make -s -C libft clean
@@ -92,8 +92,6 @@ fclean:				clean fclean_libft
 					@echo "\033[32;1m\rDirectory fully cleaned ${TRASH} ${TRASH} ${TRASH}          \033[0m"
 					
 re:					fclean all
-
-re_push_swap:		@echo "\033[32;1m\rProject recompiling ${RE}          \033[0m"
-					clean $(CHECKER_NAME) $(PUSHSWAP_NAME)
+					@echo "\033[32;1m\rProject recompiled ${RE} \033[0m"
 
 .PHONY: all clean fclean re libft clean_libft fclean_libft

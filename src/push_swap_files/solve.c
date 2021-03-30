@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/30 14:35:33 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 15:42:09 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			find_chunks(t_stack *stack, int chunk_tot, int chunk_num, int flag)
 
 	i = 0;
 	if (!(array = (int*)malloc(sizeof(int) * stack->len)))
-		printf("malloc error");
+		return (0);
 	while (i < stack->len)
 	{
 		array[i] = stack->numbers[i];
