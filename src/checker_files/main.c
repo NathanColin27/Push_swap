@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 10:21:01 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/30 00:00:17 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 13:06:41 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@
 void	ft_free_inst(t_list *inst)
 {
 	t_list *tmp;
-	
-	tmp = inst; 
-	while (tmp)
+
+	while (inst != NULL)
 	{
 		tmp = inst;
 		inst = inst->next;
-		free(inst);
-		// free(inst->content);
+		free(tmp->content);
+		free(tmp);
 	}
 }
 

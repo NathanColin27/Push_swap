@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 17:42:06 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/25 18:25:55 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/30 13:07:31 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,17 +89,4 @@ void	sort_array(int *array, size_t len)
 		}
 		i++;
 	}
-}
-int		is_sorted(t_stack *a)
-{
-	size_t i;
-
-	i = 0;
-	while (i < a->len - 1)
-	{
-		if (a->numbers[i] < a->numbers[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
 }

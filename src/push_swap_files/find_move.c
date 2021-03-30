@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 18:29:06 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/29 12:40:26 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 13:10:07 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void	to_top(void)
 {
 	t_stack	*stack;
-	size_t		i;
+	size_t	i;
 	t_data	*data;
 
 	data = get_data();

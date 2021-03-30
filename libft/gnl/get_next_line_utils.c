@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 09:55:45 by ncolin            #+#    #+#             */
-/*   Updated: 2020/07/03 19:50:47 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 11:59:13 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,4 @@ char		*ft_strchr(char const *str, int c)
 	if (*str == a)
 		return (char *)(str);
 	return (NULL);
-}
-
-char		*ft_strdup(const char *s1)
-{
-	char	*ptr;
-	int		len;
-	int		i;
-
-	len = 0;
-	i = 0;
-	while (s1[len])
-		len++;
-	if (!(ptr = (char*)malloc(sizeof(*ptr) * (len + 1))))
-		return (0);
-	while (s1[i])
-	{
-		ptr[i] = s1[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
 }

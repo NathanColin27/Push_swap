@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   median.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 18:15:11 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/25 18:49:22 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/30 13:11:27 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,16 @@ void	push_median(t_stack *a, t_stack *b, int median, int flag)
 			count++;
 		}
 	}
-	else {
+	else
+	{
 		while (count <= a->size && has_upper_than_x(a, median))
 		{
 			if (a->numbers[a->len - 1] >= median)
 				inst_exec("pb", a, b);
-			else if (a->numbers[a->len - 1] < median && has_upper_than_x(a, median))
+			else if (a->numbers[a->len - 1] < median && \
+							has_upper_than_x(a, median))
 				inst_exec("ra", a, b);
-			count ++;
+			count++;
 		}
 	}
 }

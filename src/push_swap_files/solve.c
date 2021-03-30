@@ -6,7 +6,7 @@
 /*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 16:36:19 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/29 12:17:48 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/30 13:13:04 by nathan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,11 @@ void	push_back(t_stack *a, t_stack *b)
 		inst_exec("rr", a, b);
 	else if (tmp)
 		inst_exec("ra", a, b);
+}
+
+void reset_position()
+{
+	
 }
 
 void	push_chunks(t_stack *a, t_stack *b, int chunk_total, int chunk_num)
