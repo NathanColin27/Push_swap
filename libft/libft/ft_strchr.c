@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:28:17 by ncolin            #+#    #+#             */
-/*   Updated: 2019/10/21 10:32:08 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/31 13:55:11 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_strchr(char const *str, int c)
 	char a;
 
 	a = c;
+	if (!str)
+		return (NULL);
 	while (*str)
 	{
 		if (*str == a)

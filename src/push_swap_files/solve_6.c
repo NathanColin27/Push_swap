@@ -6,7 +6,7 @@
 /*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:43:21 by nathan            #+#    #+#             */
-/*   Updated: 2021/03/25 18:21:59 by ncolin           ###   ########.fr       */
+/*   Updated: 2021/03/31 14:56:33 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	solve_5(t_stack *a, t_stack *b)
 	int median;
 
 	median = find_median(a);
-	push_median(a, b, median, 0);
+	push_median(a, b, median, 1);
 	solve_3(a, b);
 	if (is_sorted(b))
 		inst_exec("sb", a, b);
@@ -53,9 +53,9 @@ void	solve_6(t_stack *a, t_stack *b)
 	int median;
 
 	median = find_median(a);
-	push_median(a, b, median, 0);
+	push_median(a, b, median, 1);
 	solve_3(a, b);
-	solve_3_inverted(b, a);
+	solve_3_inverted(a, b);
 	inst_exec("pa", a, b);
 	inst_exec("pa", a, b);
 	inst_exec("pa", a, b);

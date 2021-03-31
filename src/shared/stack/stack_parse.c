@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nathan <nathan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ncolin <ncolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:41:39 by ncolin            #+#    #+#             */
-/*   Updated: 2021/03/30 17:13:58 by nathan           ###   ########.fr       */
+/*   Updated: 2021/03/31 13:11:57 by ncolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	valid_integer(char *s)
 	if (tmp > INT_MAX || tmp < INT_MIN)
 		return (0);
 	i = 0;
-	if (s[0] && (s[0] == '-' || s[0] == '+'))
+	if (s[0] && ((s[0] == '-' || s[0] == '+') && ft_strlen(s) > 1))
 		i++;
 	while (s[i])
 	{
